@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This script reads batter life and displays a heart with the battery percentage, changing color based on battery thresholds.
+
+# This functionality will not work on a desktop/VM, for obvious reasons
+
 HEART='❤'
 
 battery_info=`pmset -g batt`
