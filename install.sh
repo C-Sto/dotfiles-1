@@ -18,4 +18,7 @@ ln -is $CWD/.tmux.conf $HOME
 ln -is $CWD/.vimrc $HOME
 ln -is $CWD/.zshrc $HOME
 
+# Copy/configure p10k
+cp -r $CWD/powerlevel10k $HOME/.oh-my-zsh/custom/themes/
+
 #ln -is $CWD/.oh-my-zsh ~/.oh-my-zsh
