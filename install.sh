@@ -2,13 +2,38 @@
 
 # This script will symlink dotfiles from the git repo directory to their appropriate locations in the user's home directory
 
+# Variable declarations
 # sets CWD variable to current directory
 CWD=$(pwd)
+P10K=~/.p10k.zsh
+TMUX=~/.tmux.conf
+VIM=~/.vimrc
+ZSH=~/.zsh
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # The next line is needed to automatically pull submodules included in the repo
 git submodule update --init --recursive
+
+if test -f "$P10K"; then
+        echo "$P10k exists, creating backup"
+        cp ~/.p10k.zsh ~/.p10k.zsh.bak
+fi
+
+if test -f "$TMUX"; then
+        echo "$TMUX exists, creating backup"
+        cp ~/.tmux.conf ~/.tmux.conf.bak
+fi
+
+if test -f "$VIM"; then
+        echo "$VIM exists, creating backup"
+        cp ~/.vimrc ~/.vimrc.bak
+fi
+
+if test -f "$ZSH"; then
+        echo "$ZSH exists, creating backup"
+        cp ~/.zsh ~/.zsh.bak
+fi
 
 # Symlinks files from repo to home directories
 ln -is $CWD/.applemusic $HOME
